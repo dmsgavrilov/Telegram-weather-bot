@@ -2,13 +2,15 @@ import requests
 import re
 from bs4 import BeautifulSoup
 
+
 _URL = "https://yandex.ru/pogoda/"
 _TOWN = r'Прогноз погоды (во|в) (\w+)\b'
-_TEMP = r"Текущая температура[+−]*(\d+)°"
-_FEEL_LIKE = r"Ощущается как[+−]*(\d+)°"
+_TEMP = r"Текущая температура[+−]*(\d+)"
+_FEEL_LIKE = r"Ощущается как[+−]*(\d+)"
 _EXPECTED = r"картеВ (.)*Показать"
 _WEATHER = r"°((\w)+( )*)*Ощущается"
 _WIND = r'\d+,*\d+ м/с, \w{2}'
+
 
 class WeatherBroadcast:
     town = "Moscow"
@@ -32,6 +34,10 @@ class WeatherBroadcast:
     def change_town(self, Newtown):
         self.town = Newtown
 
+
 if __name__ == "__main__":
     req = requests.get(_URL + "Novosibirsk")
     info = BeautifulSoup(req.text, "html.parser").get_text()
+    print(info)
+    x = WeatherBroadcast('Moscow')
+    print(x.broadcast())

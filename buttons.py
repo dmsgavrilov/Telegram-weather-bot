@@ -1,6 +1,5 @@
-from aiogram.types import ReplyKeyboardRemove, \
-    ReplyKeyboardMarkup, KeyboardButton, \
-    InlineKeyboardMarkup, InlineKeyboardButton
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
+
 
 BROADCAST_BUTTON = KeyboardButton('Посмотреть прогноз')
 CURRENT_CITY_BUTTON = KeyboardButton('Текущий город', request_contact=False)

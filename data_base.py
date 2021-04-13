@@ -1,5 +1,6 @@
 import sqlite3
 
+
 class SQLighter:
     def __init__(self, database_file):
         """Connection to database and save the cursor"""
@@ -42,9 +43,7 @@ class SQLighter:
     def close(self):
         return self.conn.close()
 
-def main():
-    db = SQLighter("database.db")
-    print(db.get_subscriptions(True))
 
 if __name__ == "__main__":
-    main()
+    db = SQLighter("database.db")
+    print(db.get_subscriptions(True))
